@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Net.Mime;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 using Tesseract;
 
@@ -17,13 +13,13 @@ namespace Antoine.Berthier.Ocr
     public class Ocr
     {
         
-        public async Task<OcrResult[]> ReadAsync(List<byte[]> images)
+        public async Task<OcrResult[]> ReadAsync(List<byte[]> images, string path = @"./tessdata")
         {
             OcrResult[] ocrResults = new OcrResult[images.Count];
             int index = 0;
             var ocrtext = string.Empty;
             float conf;
-            var engine = new TesseractEngine(@"D:\RaiderProject\Antoine.Berthier\Antoine.Berthier.Ocr\tessdata", "fra", EngineMode.Default);
+            var engine = new TesseractEngine(path, "fra", EngineMode.Default);
             foreach (byte[] image in images)
             {
 

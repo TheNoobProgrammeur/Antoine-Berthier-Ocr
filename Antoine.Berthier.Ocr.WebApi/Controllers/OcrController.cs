@@ -33,7 +33,7 @@ namespace Antoine.Berthier.Ocr.WebApi.Controllers
                 // Your implementation code
 
                 
-                var tab = await _ocr.ReadAsync(images);
+                var tab = await _ocr.ReadAsync(images,@"D:\RaiderProject\Antoine.Berthier\Antoine.Berthier.Ocr\tessdata");
                 return tab;
                 
                 throw new NotImplementedException();
